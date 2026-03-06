@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekhaya Car Wash - Quality Car Wash & Detailing in Embalenhle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Ekhaya Car Wash</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="hero">
+        <video class="hero-bg-video" autoplay muted loop playsinline>
+            <source src="background.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="open-badge">
+            <span class="dot"></span> Open Now
+        </div>
+        
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Quality Car Wash & Detailing</h1>
+                <p class="tagline">Professional car care in Embalenhle</p>
+                
+                <div class="location-badge">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Embalenhle Ext 22, Stand 22
+                </div>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToBooking()">
+                        Book Now
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('pricing')">
+                        View Prices
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SERVICES OVERVIEW -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="section-subtitle">Choose the service that works for you</p>
+
+            <div class="services-grid">
+                <!-- Basic Wash -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Basic Wash</h3>
+                    <p>Quick exterior wash with spray and dry</p>
+                    <button class="btn btn-mini" onclick="selectService('Basic Wash')">
+                        Book Now
+                    </button>
+                </div>
+
+                <!-- Standard Wash -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <h3>Standard Wash</h3>
+                    <p>Full exterior wash with interior vacuum</p>
+                    <button class="btn btn-mini" onclick="selectService('Standard Wash')">
+                        Book Now
+                    </button>
+                </div>
+
+                <!-- Full Valet -->
+                <div class="service-card featured">
+                    <div class="service-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <h3>Full Valet</h3>
+                    <p>Complete interior and exterior detailing</p>
+                    <button class="btn btn-mini" onclick="selectService('Full Valet')">
+                        Book Now
+                    </button>
+                </div>
+
+                <!-- Engine Wash -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-engine"></i>
+                    </div>
+                    <h3>Engine Wash</h3>
+                    <p>Professional engine detailing and cleaning</p>
+                    <button class="btn btn-mini" onclick="selectService('Engine Wash')">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PRICING -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Pricing</h2>
+            <p class="section-subtitle">Transparent pricing for all services</p>
+
+            <div class="pricing-grid">
+                <!-- Basic Wash -->
+                <div class="pricing-card">
+                    <h3>Basic Wash</h3>
+                    <div class="price">
+                        <span class="currency">R</span>
+                        <span class="amount">80</span>
+                    </div>
+                    <ul class="price-includes">
+                        <li><i class="fas fa-check"></i> Exterior wash</li>
+                        <li><i class="fas fa-check"></i> Spray and dry</li>
+                        <li><i class="fas fa-check"></i> ~15 minutes</li>
+                    </ul>
+                    <p class="vehicle-note">Sedan / Hatchback</p>
+                </div>
+
+                <!-- Standard Wash -->
+                <div class="pricing-card highlighted">
+                    <div class="badge">Most Popular</div>
+                    <h3>Standard Wash</h3>
+                    <div class="price">
+                        <span class="currency">R</span>
+                        <span class="amount">150</span>
+                    </div>
+                    <ul class="price-includes">
+                        <li><i class="fas fa-check"></i> Exterior wash</li>
+                        <li><i class="fas fa-check"></i> Interior vacuum</li>
+                        <li><i class="fas fa-check"></i> Tyre shine</li>
+                        <li><i class="fas fa-check"></i> ~30 minutes</li>
+                    </ul>
+                    <p class="vehicle-note">Sedan / Hatchback</p>
+                </div>
+
+                <!-- Full Valet -->
+                <div class="pricing-card">
+                    <h3>Full Valet</h3>
+                    <div class="price">
+                        <span class="currency">R</span>
+                        <span class="amount">350</span>
+                    </div>
+                    <ul class="price-includes">
+                        <li><i class="fas fa-check"></i> Complete exterior detail</li>
+                        <li><i class="fas fa-check"></i> Deep interior clean</li>
+                        <li><i class="fas fa-check"></i> Leather treatment</li>
+                        <li><i class="fas fa-check"></i> ~2 hours</li>
+                    </ul>
+                    <p class="vehicle-note">Sedan / Hatchback</p>
+                </div>
+
+                <!-- Engine Wash -->
+                <div class="pricing-card">
+                    <h3>Engine Wash</h3>
+                    <div class="price">
+                        <span class="currency">R</span>
+                        <span class="amount">200</span>
+                    </div>
+                    <ul class="price-includes">
+                        <li><i class="fas fa-check"></i> Engine degreaser</li>
+                        <li><i class="fas fa-check"></i> Professional detailing</li>
+                        <li><i class="fas fa-check"></i> Shine & protection</li>
+                        <li><i class="fas fa-check"></i> ~45 minutes</li>
+                    </ul>
+                    <p class="vehicle-note">All vehicles</p>
+                </div>
+            </div>
+
+            <div class="pricing-note">
+                <p><strong>📌 Note:</strong> Prices may vary depending on vehicle size. SUVs & Bakkies may cost more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SERVICE COMPARISON -->
+    <section id="comparison" class="comparison">
+        <div class="container">
+            <h2>Service Comparison</h2>
+            <p class="section-subtitle">Find the right service for your needs</p>
+
+            <div class="comparison-table">
+                <div class="comparison-row">
+                    <div class="comparison-feature">Feature</div>
+                    <div class="comparison-item">
+                        <h4>Basic Wash</h4>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Standard Wash</h4>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Full Valet</h4>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-feature">Exterior Wash</div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-feature">Interior Vacuum</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-feature">Tyre Shine</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-feature">Windows & Mirrors</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-feature">Deep Interior Clean</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i></div>
+                    <div class="comparison-item"><i class="fas fa-times"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-feature">Leather Treatment</div>
+                    <div class="comparison-item"><i class="fas fa-times"></i></div>
+                    <div class="comparison-item"><i class="fas fa-times"></i></div>
+                    <div class="comparison-item"><i class="fas fa-check"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: GALLERY -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <p class="section-subtitle">Our Best Work - Real Results</p>
+
+            <!-- Featured Exterior Wash Video -->
+            <div class="gallery-video-container">
+                <div class="gallery-video-wrapper">
+                    <h3>Exterior Wash Process</h3>
+                    <video class="gallery-video" controls>
+                        <source src="video carrr.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-video-item">
+                        <video controls class="gallery-thumbnail-video">
+                            <source src="out wash.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p class="caption">Exterior Wash</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-video-item">
+                        <video controls class="gallery-thumbnail-video">
+                            <source src="interior wash.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p class="caption">Interior Detailing</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-video-item">
+                        <video controls class="gallery-thumbnail-video">
+                            <source src="engine wash.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p class="caption">Engine Wash</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-video-item">
+                        <video controls class="gallery-thumbnail-video">
+                            <source src="rep.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p class="caption">Full Detailing Package</p>
+                </div>
+            </div>
+
+            <p class="gallery-note">
+                <em>Sample images for demonstration purposes</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 6: BOOKING -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2>Book Your Service</h2>
+            <p class="section-subtitle">Quick and easy booking - takes just 2 minutes</p>
+
+            <form class="booking-form" id="bookingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+27..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Basic Wash">Basic Wash - R80</option>
+                            <option value="Standard Wash">Standard Wash - R150</option>
+                            <option value="Full Valet">Full Valet - R350</option>
+                            <option value="Engine Wash">Engine Wash - R200</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicle">Vehicle Type</label>
+                        <select id="vehicle" name="vehicle" required>
+                            <option value="">Select vehicle type</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Bakkie">Bakkie/Truck</option>
+                            <option value="Van">Van</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <select id="time" name="time" required>
+                            <option value="">Select time slot</option>
+                            <option value="08:00">08:00 AM</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                    <button type="button" class="btn btn-secondary" onclick="bookViaWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                    </button>
+                </div>
+
+                <div id="formMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- SECTION 7: LOCATION & MAP -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="location-header">
+                <div class="location-info">
+                    <h2>Find Us</h2>
+                    <p class="section-subtitle">Visit us at our location in Embalenhle</p>
+                    
+                    <div class="location-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Embalenhle Ext 22, Stand 22</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Operating Hours</h4>
+                                <p>Monday - Friday: 08:00 - 17:00</p>
+                                <p>Saturday: 09:00 - 16:00</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary" onclick="getDirections()">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </button>
+                </div>
+
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-subtitle">Reach out to us anytime</p>
+
+            <div class="contact-grid">
+                <a href="tel:+27123456789" class="contact-block">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>+27 (0)12 345 6789</p>
+                    <p class="small">Mon-Fri: 08:00 - 17:00</p>
+                </a>
+
+                <a href="https://wa.me/27123456789" target="_blank" class="contact-block">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>Quick messages welcome</p>
+                    <p class="small">Instant response</p>
+                </a>
+
+                <div class="contact-block">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Embalenhle Ext 22, Stand 22</p>
+                    <p class="small">Embalenhle, South Africa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Ekhaya Car Wash</h4>
+                    <p>Embalenhle Ext 22, Stand 22</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Mon-Fri: 08:00 - 17:00</p>
+                    <p>Sat: 09:00 - 16:00</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#booking">Book Now</a>
+                    <a href="#services">Services</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ekhaya Car Wash. All rights reserved.</p>
+                <p>Built by <strong>Bheki</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
